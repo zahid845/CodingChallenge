@@ -30,6 +30,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var mediaType = MediaType.appleMusic
 
+    /// View which contains the loading text and the spinner
+    let loadingView = UIView()
+    
+    /// Spinner shown during load the TableView
+    let spinner = UIActivityIndicatorView()
+    
+    /// Text shown during load the TableView
+    let loadingLabel = UILabel()
+
     /***************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +47,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         view.backgroundColor = UIColor.white
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "iTunes Records"
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
         setupSegmentedControl()
         setupTableView()
+        setupLoadingView()
     }
 
     /***************************************************************/
@@ -148,6 +159,66 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 }
 
 
+
+/***************************************************************/
+// MARK: Loading View
+/***************************************************************/
+
+extension ViewController {
+    
+    /***************************************************************/
+    // Set the activity indicator into the main view
+    func setupLoadingView() {
+        
+        // Sets the view which contains the loading text and the spinner
+        let width: CGFloat = 120
+        let height: CGFloat = 30
+        let x = (recordsTableView.frame.width / 2) - (width / 2)
+        let y = (recordsTableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+        
+        // Sets loading text
+        loadingLabel.textColor = .gray
+        loadingLabel.textAlignment = .center
+        loadingLabel.text = "Loading..."
+        loadingLabel.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
+        
+        // Sets spinner
+        spinner.style = .gray
+        spinner.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        
+        // Adds text and spinner to the view
+        loadingView.addSubview(spinner)
+        loadingView.addSubview(loadingLabel)
+        
+        recordsTableView.addSubview(loadingView)
+        stopLoadingView()
+    }
+    
+    /***************************************************************/
+    
+    // Remove the activity indicator from the main view
+    func startLoadingView() {
+        
+        // Hides and stops the text and the spinner
+        spinner.startAnimating()
+        spinner.isHidden = false
+        loadingLabel.isHidden = false
+    }
+    /***************************************************************/
+    
+    // Remove the activity indicator from the main view
+    func stopLoadingView() {
+        
+        // Hides and stops the text and the spinner
+        spinner.stopAnimating()
+        spinner.isHidden = true
+        loadingLabel.isHidden = true
+    }
+}
+
+
+
 /***************************************************************/
 //MARK:- API Call
 /***************************************************************/
@@ -155,13 +226,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 extension ViewController {
     
     func fetchFeeds() -> Void {
+        self.startLoadingView()
         var routeUrl = URL(string: Route.appleMusicURL.url())!
-        if(mediaType == MediaType.appleMusic) {
+        if(mediaType == MediaType.iTunesMusic) {
             routeUrl = URL(string: Route.iTunesMusicURL.url())!
-            
         }
+        
         ApiManager.sharedApiManager.getFeeds(route: routeUrl, parms: nil, completion: { response in
             DispatchQueue.main.async {
+                self.stopLoadingView()
                 if response != nil {
                     DispatchQueue.main.async {
                         self.feed = response?.feed

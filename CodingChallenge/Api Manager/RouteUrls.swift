@@ -8,8 +8,8 @@
 
 
 enum Route: String {
-
-    case appleMusicURL = "/apple-music/coming-soon/all/10/explicit.json"
+    
+    case appleMusicURL = "/apple-music/hot-tracks/all/10/explicit.json"
     case iTunesMusicURL = "/itunes-music/hot-tracks/all/10/explicit.json"
     
     func url() -> String{
