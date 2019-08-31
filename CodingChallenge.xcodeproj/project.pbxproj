@@ -19,6 +19,9 @@
 		C923F0FC231A6A7000CC9CF9 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F0FB231A6A7000CC9CF9 /* ApiManager.swift */; };
 		C923F0FF231A6ACB00CC9CF9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C923F0FE231A6ACB00CC9CF9 /* Record.swift */; };
 		C948CC1C231A6C7700555DC2 /* RecordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948CC1B231A6C7700555DC2 /* RecordTableCell.swift */; };
+		C948CC1E231A6F9B00555DC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948CC1D231A6F9B00555DC2 /* Constants.swift */; };
+		C948CC22231A6FF900555DC2 /* RouteUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948CC21231A6FF900555DC2 /* RouteUrls.swift */; };
+		C948CC25231A710E00555DC2 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948CC24231A710E00555DC2 /* CommonMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		C923F0FB231A6A7000CC9CF9 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		C923F0FE231A6ACB00CC9CF9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		C948CC1B231A6C7700555DC2 /* RecordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableCell.swift; sourceTree = "<group>"; };
+		C948CC1D231A6F9B00555DC2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C948CC21231A6FF900555DC2 /* RouteUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteUrls.swift; sourceTree = "<group>"; };
+		C948CC24231A710E00555DC2 /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		EE18614149CDE7EA829455D4 /* Pods-CodingChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-CodingChallengeUITests/Pods-CodingChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,10 +137,12 @@
 		C923F0CB231A68FB00CC9CF9 /* CodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				C923F0CC231A68FB00CC9CF9 /* AppDelegate.swift */,
 				C948CC1A231A6C3800555DC2 /* ViewController */,
 				C923F0FD231A6AA700CC9CF9 /* Model */,
 				C923F0FA231A6A5000CC9CF9 /* Api Manager */,
+				C948CC23231A70F800555DC2 /* CommonMethods */,
+				C923F0CC231A68FB00CC9CF9 /* AppDelegate.swift */,
+				C948CC1D231A6F9B00555DC2 /* Constants.swift */,
 				C923F0D3231A68FC00CC9CF9 /* Assets.xcassets */,
 				C923F0D5231A68FC00CC9CF9 /* LaunchScreen.storyboard */,
 				C923F0D8231A68FC00CC9CF9 /* Info.plist */,
@@ -164,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C923F0FB231A6A7000CC9CF9 /* ApiManager.swift */,
+				C948CC21231A6FF900555DC2 /* RouteUrls.swift */,
 			);
 			path = "Api Manager";
 			sourceTree = "<group>";
@@ -183,6 +192,14 @@
 				C948CC1B231A6C7700555DC2 /* RecordTableCell.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C948CC23231A70F800555DC2 /* CommonMethods */ = {
+			isa = PBXGroup;
+			children = (
+				C948CC24231A710E00555DC2 /* CommonMethods.swift */,
+			);
+			path = CommonMethods;
 			sourceTree = "<group>";
 		};
 		DC03A15100621CE82E74FE0D /* Frameworks */ = {
@@ -418,8 +435,11 @@
 				C923F0CF231A68FB00CC9CF9 /* ViewController.swift in Sources */,
 				C923F0FC231A6A7000CC9CF9 /* ApiManager.swift in Sources */,
 				C923F0FF231A6ACB00CC9CF9 /* Record.swift in Sources */,
+				C948CC25231A710E00555DC2 /* CommonMethods.swift in Sources */,
 				C948CC1C231A6C7700555DC2 /* RecordTableCell.swift in Sources */,
+				C948CC22231A6FF900555DC2 /* RouteUrls.swift in Sources */,
 				C923F0CD231A68FB00CC9CF9 /* AppDelegate.swift in Sources */,
+				C948CC1E231A6F9B00555DC2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

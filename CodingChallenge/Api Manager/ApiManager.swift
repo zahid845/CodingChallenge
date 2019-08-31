@@ -12,10 +12,8 @@ import Alamofire
 class ApiManager: NSObject {
     static let sharedApiManager = ApiManager()
     
-    func getFeeds( secondryUrl:String, parms : Parameters?,   completion: @escaping (_ success: Record?) -> Void) {
-        
-        let url = "https://rss.itunes.apple.com/api/v1/us" + secondryUrl
-        Alamofire.request(url, method:.get, parameters:parms, headers: nil).responseJSON { response in
+    func getFeeds( route:URL, parms : Parameters?,   completion: @escaping (_ success: Record?) -> Void) {
+        Alamofire.request(route, method:.get, parameters:parms, headers: nil).responseJSON { response in
             switch response.result {
             case .success:
                 do {

@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.8.2)
   - Kingfisher (5.7.1)
+  - Segmentio (4.1)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - Segmentio
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Kingfisher
+    - Segmentio
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
+  Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
 
-PODFILE CHECKSUM: 1a5be74a5ff12f1f058af75d698a513971fcde9c
+PODFILE CHECKSUM: a4bc107baa1674b1fb6b60abc9a01a364b5c450a
 
 COCOAPODS: 1.7.0.rc.2

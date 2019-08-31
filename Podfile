@@ -8,6 +8,7 @@ target 'CodingChallenge' do
   # Pods for CodingChallenge
 	pod 'Alamofire'
 	pod 'Kingfisher'
+  pod 'Segmentio'
 
 
   target 'CodingChallengeTests' do
