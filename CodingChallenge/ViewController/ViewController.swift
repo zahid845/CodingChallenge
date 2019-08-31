@@ -136,6 +136,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     /***************************************************************/
+    //This will run every time we change the orientation of the device
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        // Get latest screen bounds after orientation of device is changed
+        let screenBounds = UIScreen.main.bounds
+        
+        // Refresh frame of Segmented Control relative to Screen size
+        customSC.frame = CGRect.init(x: 0, y: 0, width: screenBounds.width, height: 40)
+        
+        // Refresh frame of TableView relative to Screen size
+        recordsTableView.frame = CGRect.init(x: screenBounds.minX, y: customSC.frame.height, width: screenBounds.width, height: screenBounds.height-customSC.frame.height)
+        
+        // Refresh frame of LoadingView relative to TableView
+        let width: CGFloat = 120
+        let height: CGFloat = 30
+        let x = (recordsTableView.frame.width / 2) - (width / 2)
+        let y = (recordsTableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
+        loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    /***************************************************************/
     //MARK: - TableView Delegate & DataSource Methods
     /***************************************************************/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
